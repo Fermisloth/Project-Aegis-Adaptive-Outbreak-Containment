@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdac65826fe6c9449b384879048c4a46, type: 3}
+  m_Name: SimConfig
+  m_EditorClassIdentifier: Assembly-CSharp::SimulationConfig
+  transmissionRate: 1
+  incubationRate: 0.2
+  recoveryRate: 0.05
+  quarantineRate: 0.05
+  mortalityRate: 0.05
+  socialDistancing: 0
+  vaccinationRate: 0
+  interactionRadius: 2
+  initialInfectedCount: 5
+  initialBudget: 5000
+  hospitalCapacity: 50
+  costQuarantine: 10
+  costVaccination: 50

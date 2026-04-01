@@ -1,0 +1,29 @@
+﻿
+Run Tool
+  Tool: editor-application-get-state
+  URL: http://localhost:29408/api/tools/editor-application-get-state
+  Auth: from config
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+Calling editor-application-get-state...
+node.exe : ERROR: HTTP 
+500: Internal Server Error
+At C:\Users\DELL\AppData\Ro
+aming\npm\unity-mcp-cli.ps1
+:24 char:5
++     & "node$exe"  "$based
+ir/node_modules/unity-mcp-c
+li/bin/unity-mcp- ...
++     ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
+    + CategoryInfo         
+     : NotSpecified: (ERR  
+  OR: HTTP 500: Internal   
+  Server Error:String)     
+[], RemoteException
+    + FullyQualifiedErrorI 
+   d : NativeCommandError
+ 
+INFO: {
+  "error": "Response data is null"
+}

@@ -1,0 +1,38 @@
+﻿
+Run Tool
+  Tool: ping
+  URL: https://ai-game.dev/mcp/api/tools/ping
+  Auth: from config
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+Calling ping...
+node.exe : ERROR: HTTP 
+401: Unauthorized
+At C:\Users\DELL\AppData
+\Roaming\npm\unity-mcp-c
+li.ps1:24 char:5
++     & "node$exe"  "$ba
+sedir/node_modules/unity
+-mcp-cli/bin/unity-mcp- 
+...
++     ~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo      
+        : NotSpecified: 
+(ERR    OR: HTTP 401: 
+Unauthor    
+ized:String) [], Remot  
+  eException
+    + 
+FullyQualifiedErrorI    
+d : NativeCommandError
+ 
+INFO: {
+  "error": "Unauthorized",
+  "message": "A valid Bearer token is required. Provide it via the Authorization header: Bearer <token>"
+}
+Assertion failed: 
+!(handle->flags & 
+UV_HANDLE_CLOSING), 
+file src\win\async.c, 
+line 76

@@ -1,0 +1,35 @@
+﻿
+Run Tool
+  Tool: console-get-logs
+  URL: http://localhost:29408/api/tools/console-get-logs
+  Auth: from config
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+Calling console-get-logs...
+node.exe : ERROR: HTTP 
+500: Internal Server 
+Error
+At C:\Users\DELL\AppDat
+a\Roaming\npm\unity-mcp
+-cli.ps1:24 char:5
++     & "node$exe"  "$b
+asedir/node_modules/uni
+ty-mcp-cli/bin/unity-mc
+p- ...
++     ~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~
+    + CategoryInfo     
+         : 
+NotSpecified: (ERR    
+OR: HTTP 500: Internal 
+    Server 
+Error:String)     [], 
+RemoteException
+    + 
+FullyQualifiedErrorI   
+ d : NativeCommandError
+ 
+INFO: {
+  "error": "Response data is null"
+}

@@ -1,0 +1,98 @@
+.dashboard-container {
+    width: 300px;
+    height: auto;
+    background-color: rgba(30, 30, 30, 0.85); /* Glassy background */
+    border-radius: 12px;
+    padding: 15px;
+    margin: 20px;
+    color: white;
+    position: absolute;
+    top: 50%; /* Anchor to middle horizontally on left */
+    left: 0;
+    translate: 0 -50%;
+}
+
+.header-label {
+    font-size: 16px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+    margin-bottom: 20px;
+    -unity-font-style: bold;
+    color: #4dc2f8;
+}
+
+.stat-label {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.stats-panel {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+}
+
+.stats-panel Label {
+    margin: 2px 0;
+}
+
+.actions-panel {
+    margin-top: 20px;
+}
+
+.action-btn {
+    background-color: #2b5797;
+    color: white;
+    border-width: 0;
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 8px;
+    -unity-font-style: bold;
+}
+
+.action-btn:hover {
+    background-color: #3b73c4;
+}
+
+.action-btn:active {
+    background-color: #1a3866;
+}
+
+.graph-container {
+    height: 30px;
+    background-color: #333;
+    border-radius: 6px;
+    flex-direction: row;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.graph-bar {
+    height: 100%;
+}
+
+.legend-container {
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.numbers-container {
+    width: 220px;
+    height: auto;
+    background-color: rgba(20, 20, 20, 0.9);
+    border-radius: 12px;
+    padding: 15px;
+    margin: 20px;
+    position: absolute;
+    top: 20px;
+    right: 0;
+}
+
+.num-label {
+    font-size: 18px;
+    -unity-font-style: bold;
+    margin-top: 10px;
+    -unity-text-align: middle-left;
+}

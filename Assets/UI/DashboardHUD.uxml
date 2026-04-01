@@ -1,0 +1,47 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Style src="DashboardHUD.uss" />
+    <ui:VisualElement name="MainContainer" class="dashboard-container">
+        <ui:Label text="Adaptive Outbreak Containment Engine" class="header-label" />
+        
+        <ui:VisualElement class="telemetry-panel">
+            <ui:Label name="lblBudget" text="Budget: $5000" class="stat-label" />
+            <ui:Label name="lblHospital" text="Hospital: 0 / 50" class="stat-label" />
+            <ui:Label name="lblPeak" text="Peak Cases: 0" class="stat-label" />
+        </ui:VisualElement>
+        
+        <ui:VisualElement class="stats-panel">
+            <ui:Label text="Real-Time Epidemic Graph:" class="stat-label" />
+            
+            <ui:VisualElement class="graph-container">
+                <ui:VisualElement name="barS" class="graph-bar" style="background-color: green;" />
+                <ui:VisualElement name="barE" class="graph-bar" style="background-color: yellow;" />
+                <ui:VisualElement name="barI" class="graph-bar" style="background-color: red;" />
+                <ui:VisualElement name="barQ" class="graph-bar" style="background-color: blue;" />
+                <ui:VisualElement name="barR" class="graph-bar" style="background-color: gray;" />
+            </ui:VisualElement>
+            
+            <ui:VisualElement class="legend-container">
+                <ui:Label name="lblS" text="S: 400" />
+                <ui:Label name="lblE" text="E: 0" />
+                <ui:Label name="lblI" text="I: 0" />
+                <ui:Label name="lblQ" text="Q: 0" />
+                <ui:Label name="lblR" text="R: 0" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        
+        <ui:VisualElement class="actions-panel">
+            <ui:Button name="btnLockdown" text="Enforce Lockdown ($500)" class="action-btn" />
+            <ui:Button name="btnVaccinate" text="Mass Vaccination ($50/agent)" class="action-btn" />
+            <ui:Button name="btnReset" text="Reset Simulation" class="action-btn" style="background-color: #aa3333;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+
+    <ui:VisualElement name="NumbersContainer" class="numbers-container">
+        <ui:Label text="Live Population Data" class="header-label" style="color: white; border-bottom-width: 1px; border-bottom-color: gray; padding-bottom: 5px;" />
+        <ui:Label name="bigLblS" text="Susceptible: 400" class="num-label" style="color: green;" />
+        <ui:Label name="bigLblE" text="Exposed: 0" class="num-label" style="color: yellow;" />
+        <ui:Label name="bigLblI" text="Infectious: 0" class="num-label" style="color: red;" />
+        <ui:Label name="bigLblQ" text="Quarantined: 0" class="num-label" style="color: #4a90e2;" />
+        <ui:Label name="bigLblR" text="Recovered: 0" class="num-label" style="color: gray;" />
+    </ui:VisualElement>
+</ui:UXML>

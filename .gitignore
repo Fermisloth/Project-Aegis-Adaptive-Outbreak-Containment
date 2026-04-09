@@ -97,3 +97,14 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# AI Agent metadata
+.agent/
+
+# Python Virtual environments & Cache
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+.env

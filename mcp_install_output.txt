@@ -1,7 +1,0 @@
-﻿Resolving latest plugin version...
-INFO: Resolved latest version from OpenUPM: 0.63.2
-SUCCESS: Resolved plugin version: 0.63.2
-INFO: Installing Unity-MCP plugin v0.63.2 into: d:\Unity\Virus-Propogation
-INFO: Plugin already at version 0.63.2 (>= 0.63.2). Skipping version update. Use --plugin-version to force a specific version.
-INFO: manifest.json is already up to date.
-SUCCESS: Done! Open the project in Unity Editor to complete installation.

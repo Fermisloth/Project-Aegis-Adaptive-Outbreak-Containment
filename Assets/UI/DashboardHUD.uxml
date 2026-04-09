@@ -32,6 +32,7 @@
         <ui:VisualElement class="actions-panel">
             <ui:Button name="btnLockdown" text="Enforce Lockdown ($500)" class="action-btn" />
             <ui:Button name="btnVaccinate" text="Mass Vaccination ($50/agent)" class="action-btn" />
+            <ui:Button name="btnQuarantine" text="Enforce Quarantine ($800)" class="action-btn" />
             <ui:Button name="btnReset" text="Reset Simulation" class="action-btn" style="background-color: #aa3333;" />
         </ui:VisualElement>
     </ui:VisualElement>

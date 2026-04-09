@@ -14,7 +14,7 @@ public class DashboardController : MonoBehaviour
     private Label lblS, lblE, lblI, lblQ, lblR;
     private Label bigLblS, bigLblE, bigLblI, bigLblQ, bigLblR;
     private VisualElement barS, barE, barI, barQ, barR;
-    private Button btnLockdown, btnVaccinate, btnReset;
+    private Button btnLockdown, btnVaccinate, btnQuarantine, btnReset;
 
     private void Start()
     {
@@ -50,6 +50,7 @@ public class DashboardController : MonoBehaviour
         // Fetch Buttons
         btnLockdown = root.Q<Button>("btnLockdown");
         btnVaccinate = root.Q<Button>("btnVaccinate");
+        btnQuarantine = root.Q<Button>("btnQuarantine");
         btnReset = root.Q<Button>("btnReset");
 
         if (manager == null) manager = FindAnyObjectByType<SimulationManager>();
@@ -61,6 +62,7 @@ public class DashboardController : MonoBehaviour
             // Setup Button Listeners
             if (btnLockdown != null) btnLockdown.clicked += () => manager.ExecuteAction(1);
             if (btnVaccinate != null) btnVaccinate.clicked += () => manager.ExecuteAction(2);
+            if (btnQuarantine != null) btnQuarantine.clicked += () => manager.ExecuteAction(3);
             if (btnReset != null) btnReset.clicked += () => SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }

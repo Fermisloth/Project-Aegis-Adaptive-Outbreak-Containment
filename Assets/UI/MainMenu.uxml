@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement style="flex-grow: 1; align-items: center; justify-content: center; background-color: rgb(34, 40, 49);">
+        <ui:Label text="Adaptive Outbreak Containment Engine" style="font-size: 60px; color: rgb(238, 238, 238); -unity-font-style: bold; margin-bottom: 50px;" />
+        <ui:Button name="btnPlay" text="PLAY SIMULATION" style="font-size: 30px; padding-top: 20px; padding-bottom: 20px; padding-left: 50px; padding-right: 50px; background-color: rgb(0, 173, 181); color: white; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; -unity-font-style: bold; border-color: rgba(0,0,0,0);" />
+    </ui:VisualElement>
+</ui:UXML>

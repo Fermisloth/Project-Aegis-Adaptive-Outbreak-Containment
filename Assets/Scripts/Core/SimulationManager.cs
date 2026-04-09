@@ -18,6 +18,9 @@ public class SimulationManager : MonoBehaviour
     [Header("Telemetry")]
     public int countS, countE, countI, countQ, countR, countD;
 
+    public float lockdownTimer = 0f;
+    public float quarantineTimer = 0f;
+
     public Action OnTick;
     public Action<int> OnBudgetChanged;
     
@@ -49,6 +52,35 @@ public class SimulationManager : MonoBehaviour
         
         model.Tick();
         stepCount++;
+
+        if (lockdownTimer > 0)
+        {
+            lockdownTimer -= Time.fixedDeltaTime;
+            if (lockdownTimer <= 0)
+            {
+                foreach (var agent in model.agents)
+                {
+                    var mov = agent.GetComponent<Movement>();
+                    if(mov) mov.SetLockdown(false);
+                }
+                Debug.Log("Lockdown Ended.");
+            }
+        }
+
+        if (quarantineTimer > 0)
+        {
+            quarantineTimer -= Time.fixedDeltaTime;
+            if (quarantineTimer <= 0)
+            {
+                foreach (var agent in model.agents)
+                {
+                    var mov = agent.GetComponent<Movement>();
+                    if (mov) mov.ReleaseFromBuilding();
+                }
+                Debug.Log("Quarantine Ended.");
+            }
+        }
+
         OnTick?.Invoke();
     }
     
@@ -89,9 +121,10 @@ public class SimulationManager : MonoBehaviour
     
     public void ExecuteAction(int actionId)
     {
-        // 0=No Action, 1=Regional Lockdown, 2=Targeted Vaccination
+        // 0=No Action, 1=Regional Lockdown, 2=Targeted Vaccination, 3=Quarantine
         if(actionId == 1) EnforceLockdown();
         if(actionId == 2) ApplyMassVaccination();
+        if(actionId == 3) EnforceQuarantine();
     }
     
     public void EnforceLockdown()
@@ -101,6 +134,8 @@ public class SimulationManager : MonoBehaviour
         {
             remainingBudget -= cost;
             OnBudgetChanged?.Invoke((int)remainingBudget);
+            
+            lockdownTimer = 10f; // 10 seconds duration
             
             foreach (var agent in model.agents)
             {
@@ -130,5 +165,28 @@ public class SimulationManager : MonoBehaviour
         }
         OnBudgetChanged?.Invoke((int)remainingBudget);
         Debug.Log("Vaccination applied to random agents.");
+    }
+
+    public void EnforceQuarantine()
+    {
+        float cost = 800; // Flat cost for quarantine
+        if (remainingBudget >= cost)
+        {
+            remainingBudget -= cost;
+            OnBudgetChanged?.Invoke((int)remainingBudget);
+            
+            quarantineTimer = 15f; // 15 seconds quarantine duration
+            
+            foreach (var agent in model.agents)
+            {
+                if (agent.CurrentState == InfectionState.Infectious || agent.CurrentState == InfectionState.Quarantined)
+                {
+                    agent.ChangeState(InfectionState.Quarantined);
+                    var mov = agent.GetComponent<Movement>();
+                    if (mov) mov.SendToBuilding();
+                }
+            }
+            Debug.Log("Quarantine Enforced!");
+        }
     }
 }

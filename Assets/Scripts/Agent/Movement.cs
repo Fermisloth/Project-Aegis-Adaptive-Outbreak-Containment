@@ -12,6 +12,9 @@ public class Movement : MonoBehaviour
 
     private Rigidbody rb;
     private bool moveXAxis = true;
+    
+    private HealthState healthState;
+    public bool isQuarantinedInBuilding = false;
 
     void Start()
     {
@@ -22,11 +25,14 @@ public class Movement : MonoBehaviour
         var col = GetComponent<Collider>();
         if (col != null) col.isTrigger = true; // let pass through each other
 
+        healthState = GetComponent<HealthState>();
+
         SetNewTarget();
     }
 
     void FixedUpdate()
     {
+        if (healthState != null && healthState.CurrentState == InfectionState.Dead) return;
         if (isLockedDown) return; // Completely halt movement when locked down
         
         Vector3 currentPos = transform.position;
@@ -49,7 +55,7 @@ public class Movement : MonoBehaviour
                 updateTimer += Time.fixedDeltaTime;
                 if (updateTimer > 1f)
                 {
-                    SetNewTarget();
+                    if (!isQuarantinedInBuilding) SetNewTarget();
                     updateTimer = 0f;
                 }
                 return;
@@ -80,5 +86,21 @@ public class Movement : MonoBehaviour
     {
         isLockedDown = lockdownStatus;
         currentSpeed = lockdownStatus ? 0.2f : baseSpeed; // Minimal speed when locked down
+    }
+
+    public void SendToBuilding()
+    {
+        if (CityMapGenerator.BuildingPositions != null && CityMapGenerator.BuildingPositions.Count > 0)
+        {
+            targetPosition = CityMapGenerator.BuildingPositions[Random.Range(0, CityMapGenerator.BuildingPositions.Count)];
+            isQuarantinedInBuilding = true;
+            moveXAxis = Random.value > 0.5f; 
+        }
+    }
+
+    public void ReleaseFromBuilding()
+    {
+        isQuarantinedInBuilding = false;
+        SetNewTarget();
     }
 }

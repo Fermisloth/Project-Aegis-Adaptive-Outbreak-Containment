@@ -1,0 +1,5 @@
+{
+  "csharpCode": "using UnityEngine; public class TakeScreenshot { public static void Execute() { ScreenCapture.CaptureScreenshot(\"simulation_preview.png\", 2); Debug.Log(\"Captured simulation_preview.png at 2x resolution\"); } }",
+  "className": "TakeScreenshot",
+  "methodName": "Execute"
+}

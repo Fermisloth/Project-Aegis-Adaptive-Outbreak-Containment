@@ -15,7 +15,7 @@ Project Aegis: Adaptive outbreak containment for #ROVOTINKERQUEST. Employs Hiera
 </p>
 
 <!-- 🔽 HERO IMAGE / GIF — Replace with actual screenshot or recording -->
-<img width="640" height="360" alt="Overview" src="https://github.com/user-attachments/assets/9f95e5d0-574f-4d2d-a784-c2248c6ee28c" />
+<img width="640" height="360" alt="Overview" src="./simulation_preview.png" />
 
 </div>
 
@@ -211,7 +211,7 @@ $$m_i = \begin{cases} 0.5 & \text{if } a_i < 12 \text{ (children)} \\ 2.5 & \tex
 | ⚫ Black | **Dead** | Deceased — agent stops moving permanently |
 
 <!-- 🔽 GIF — Replace with a recording showing color transitions during an outbreak -->
-<img width="522" height="464" alt="color transition" src="https://github.com/user-attachments/assets/2a8d2482-22e8-44f8-a428-6893b0f8b67c" />
+<img width="522" height="464" alt="color transition" src="./simulation_preview.png" />
 
 
 ### 📊 Simulation Parameters
@@ -256,7 +256,7 @@ The simulation provides three real-time policy actions, each with a budget cost:
 | 💉 **Mass Vaccination** | $50/agent | Instant | Up to 10 random Susceptible agents become Recovered (immune) |
 | 🏥 **Quarantine** | $800 | 15s | All Infectious agents are forced into nearby buildings; healthy agents move freely |
 
-<img width="360" height="640" alt="Lockdown" src="https://github.com/user-attachments/assets/2f251127-927e-4807-8e56-0cdb0b8fd410" />
+<img width="360" height="640" alt="Lockdown" src="./simulation_preview.png" />
 
 ---
 
@@ -359,7 +359,7 @@ public void SendToBuilding()
 
 <!-- 🔽 SCREENSHOT — Replace with screenshot of the Dashboard HUD in action -->
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/a6de9708-5257-4b7a-9547-dc49f126eafd" alt="Dashboard HUD — live telemetry" width="800">
+  <img src="./simulation_preview.png" alt="Dashboard HUD — live telemetry" width="800">
   <br/>
   <sub><i>Dashboard HUD showing budget, hospital occupancy, epidemic bar graph, and action buttons</i></sub>
 </p>
@@ -378,7 +378,7 @@ public void SendToBuilding()
 
 <!-- 🔽 SCREENSHOT — Replace with a wide shot of the running simulation -->
 <p align="center">
- <img width="1599" height="754" alt="image" src="https://github.com/user-attachments/assets/7d005abb-1137-4dc9-8e69-89fb5da1d74b" />
+ <img width="1599" height="754" alt="image" src="./simulation_preview.png" />
   <sub><i>400 agents navigating a procedurally generated city with buildings, barriers, and grid-based streets</i></sub>
 </p>
 

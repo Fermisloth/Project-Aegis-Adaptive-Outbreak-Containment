@@ -394,7 +394,7 @@ public void SendToBuilding()
 
 <!-- 🔽 SCREENSHOT — Replace with a wide shot of the running simulation -->
 <p align="center">
- <img width="1599" height="754" alt="image" src="https://github.com/user-attachments/assets/2c10abda-955c-49a1-9937-065fc3b43ac8" />
+https://github.com/user-attachments/assets/2c10abda-955c-49a1-9937-065fc3b43ac8
   <sub><i>400 agents navigating a procedurally generated city with buildings, barriers, and grid-based streets</i></sub>
 </p>
 

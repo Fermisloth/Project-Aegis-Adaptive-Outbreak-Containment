@@ -1,0 +1,1 @@
+idle(Trigger), walk(Trigger), run(Trigger), wave(Trigger), State: idle, State: walk, State: run, State: wave, 

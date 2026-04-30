@@ -1,6 +1,44 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
-    <ui:VisualElement style="flex-grow: 1; align-items: center; justify-content: center; background-color: rgb(34, 40, 49);">
-        <ui:Label text="Adaptive Outbreak Containment Engine" style="font-size: 60px; color: rgb(238, 238, 238); -unity-font-style: bold; margin-bottom: 50px;" />
-        <ui:Button name="btnPlay" text="PLAY SIMULATION" style="font-size: 30px; padding-top: 20px; padding-bottom: 20px; padding-left: 50px; padding-right: 50px; background-color: rgb(0, 173, 181); color: white; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; -unity-font-style: bold; border-color: rgba(0,0,0,0);" />
+    <ui:Style src="MainMenu.uss" />
+
+    <!-- Background with animated particles feel -->
+    <ui:VisualElement name="MenuRoot" class="menu-root">
+
+        <!-- Decorative top bar -->
+        <ui:VisualElement class="top-bar" />
+
+        <!-- Main content -->
+        <ui:VisualElement class="menu-center">
+            <ui:Label text="PROJECT AEGIS" class="title-sub" />
+            <ui:Label text="Adaptive Outbreak" class="title-main" />
+            <ui:Label text="Containment Engine" class="title-main title-accent" />
+            <ui:Label text="SEIQR Agent-Based Epidemic Simulation" class="title-desc" />
+
+            <ui:VisualElement class="divider" />
+
+            <ui:Button name="btnPlay" text="▶  LAUNCH SIMULATION" class="btn-play" />
+        </ui:VisualElement>
+
+        <!-- Version watermark -->
+        <ui:Label text="v1.0  |  Fermisloth" class="watermark" />
+    </ui:VisualElement>
+
+    <!-- Loading / Transition Overlay (hidden by default) -->
+    <ui:VisualElement name="LoadingOverlay" class="loading-overlay" style="display: none;">
+        <ui:VisualElement class="loading-box">
+            <ui:Label text="INITIALISING SIMULATION" class="loading-title" />
+            <ui:VisualElement class="progress-track">
+                <ui:VisualElement name="progressBar" class="progress-fill" />
+            </ui:VisualElement>
+            <ui:Label name="loadingHint" text="Loading city layout…" class="loading-hint" />
+            <!-- Spinner dots -->
+            <ui:VisualElement class="spinner-row">
+                <ui:VisualElement name="dot0" class="dot" />
+                <ui:VisualElement name="dot1" class="dot" />
+                <ui:VisualElement name="dot2" class="dot" />
+                <ui:VisualElement name="dot3" class="dot" />
+                <ui:VisualElement name="dot4" class="dot" />
+            </ui:VisualElement>
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

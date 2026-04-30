@@ -16,6 +16,8 @@ public class Movement : MonoBehaviour
     private HealthState healthState;
     public bool isQuarantinedInBuilding = false;
 
+    private Animator animator;
+
     void Start()
     {
         currentSpeed = baseSpeed;
@@ -26,14 +28,42 @@ public class Movement : MonoBehaviour
         if (col != null) col.isTrigger = true; // let pass through each other
 
         healthState = GetComponent<HealthState>();
+        animator = GetComponentInChildren<Animator>();
+
+        if (animator != null)
+        {
+            animator.SetTrigger("walk");
+        }
 
         SetNewTarget();
     }
 
     void FixedUpdate()
     {
-        if (healthState != null && healthState.CurrentState == InfectionState.Dead) return;
-        if (isLockedDown) return; // Completely halt movement when locked down
+        if (healthState != null && healthState.CurrentState == InfectionState.Dead) 
+        {
+            if (animator != null && !animator.GetCurrentAnimatorStateInfo(0).IsName("idle"))
+            {
+                animator.SetTrigger("idle");
+            }
+            return;
+        }
+
+        if (isLockedDown) 
+        {
+            if (animator != null && !animator.GetCurrentAnimatorStateInfo(0).IsName("idle"))
+            {
+                animator.SetTrigger("idle");
+            }
+            return; 
+        }
+        else
+        {
+            if (animator != null && !animator.GetCurrentAnimatorStateInfo(0).IsName("walk"))
+            {
+                animator.SetTrigger("walk");
+            }
+        }
         
         Vector3 currentPos = transform.position;
         Vector3 dir = Vector3.zero;
@@ -62,7 +92,14 @@ public class Movement : MonoBehaviour
             }
         }
 
-        transform.position += dir * currentSpeed * Time.fixedDeltaTime;
+        if (dir != Vector3.zero)
+        {
+            transform.position += dir * currentSpeed * Time.fixedDeltaTime;
+            
+            // Rotate agent to face movement direction smoothly
+            Quaternion targetRotation = Quaternion.LookRotation(dir);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * 15f);
+        }
     }
 
     private void SetNewTarget()

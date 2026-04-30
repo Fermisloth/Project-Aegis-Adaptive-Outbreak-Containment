@@ -1,0 +1,5 @@
+{
+  "csharpCode": "using UnityEngine; using UnityEditor; public class PrintAnimParams { public static void Execute() { var c = AssetDatabase.LoadAssetAtPath<UnityEditor.Animations.AnimatorController>(\"Assets/DavidJalbert/LowPolyPeople/Prefabs/Animations/normal.controller\"); foreach(var p in c.parameters) Debug.Log(\"Param: \" + p.name); } }",
+  "className": "PrintAnimParams",
+  "methodName": "Execute"
+}

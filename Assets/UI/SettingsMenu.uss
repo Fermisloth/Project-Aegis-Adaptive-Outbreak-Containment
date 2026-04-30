@@ -1,0 +1,111 @@
+.overlay {
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    align-items: center;
+    justify-content: center;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+}
+
+.hidden {
+    opacity: 0;
+    display: none;
+}
+
+.modal-panel {
+    background-color: #1a1e24;
+    border-color: #00d2ff;
+    border-width: 2px;
+    border-radius: 12px;
+    padding: 30px;
+    width: 600px;
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.2);
+}
+
+.title {
+    font-size: 24px;
+    -unity-font-style: bold;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+    margin-bottom: 20px;
+    -unity-text-align: middle-center;
+}
+
+.section {
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.section-title {
+    font-size: 16px;
+    color: #00d2ff;
+    margin-bottom: 10px;
+    -unity-font-style: bold;
+}
+
+.unity-slider {
+    margin-bottom: 10px;
+}
+
+.unity-slider .unity-label {
+    color: #cccccc;
+    width: 150px;
+}
+
+.unity-slider .unity-base-slider__tracker {
+    background-color: #333333;
+    border-width: 0;
+    height: 6px;
+    border-radius: 3px;
+}
+
+.unity-slider .unity-base-slider__dragger {
+    background-color: #00d2ff;
+    border-width: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    margin-top: -5px;
+}
+
+.button-row {
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    -unity-font-style: bold;
+    margin-left: 10px;
+    cursor: pointer;
+    border-width: 0;
+    transition-duration: 0.2s;
+}
+
+.btn.primary {
+    background-color: #00d2ff;
+    color: #000000;
+}
+
+.btn.primary:hover {
+    background-color: #55e0ff;
+    scale: 1.05;
+}
+
+.btn.secondary {
+    background-color: transparent;
+    color: #cccccc;
+    border-width: 1px;
+    border-color: #555555;
+}
+
+.btn.secondary:hover {
+    background-color: #333333;
+    color: #ffffff;
+}

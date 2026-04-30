@@ -1,0 +1,25 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Style src="SettingsMenu.uss" />
+    <ui:VisualElement name="settings-overlay" class="overlay hidden">
+        <ui:VisualElement class="modal-panel">
+            <ui:Label text="SIMULATION SETTINGS" class="title" />
+            
+            <ui:VisualElement class="section">
+                <ui:Label text="Virus Parameters" class="section-title" />
+                <ui:Slider label="Contagiousness" name="slider-contagious" high-value="2" low-value="0.1" value="0.8" />
+                <ui:Slider label="Lethality" name="slider-lethal" high-value="1" low-value="0" value="0.05" />
+            </ui:VisualElement>
+            
+            <ui:VisualElement class="section">
+                <ui:Label text="Population Demographics" class="section-title" />
+                <ui:Slider label="Male Fraction" name="slider-male" high-value="1" low-value="0" value="0.5" />
+                <ui:Slider label="Child Fraction" name="slider-child" high-value="0.3" low-value="0" value="0.15" />
+            </ui:VisualElement>
+            
+            <ui:VisualElement class="button-row">
+                <ui:Button text="APPLY &amp; RESPAWN" name="btn-apply" class="btn primary" />
+                <ui:Button text="CLOSE" name="btn-close" class="btn secondary" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

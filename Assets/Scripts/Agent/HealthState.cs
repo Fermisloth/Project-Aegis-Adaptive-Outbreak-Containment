@@ -17,27 +17,60 @@ public class HealthState : MonoBehaviour
     public float SusceptibilityMultiplier = 1.0f;
     public float MortalityMultiplier = 1.0f;
     
+    // Set by spawner before Start() runs via direct field assignment
+    [HideInInspector] public bool IsChild = false;
+
     public event Action<InfectionState> OnStateChanged;
+
+    // Cached per-instance materials so we can tint without affecting shared assets
+    private Material[] instanceMaterials;
 
     private void Start()
     {
-        // Randomly assign demographics
-        Age = Random.Range(5, 90);
+        // Assign age based on whether spawner flagged as child
+        if (IsChild)
+            Age = Random.Range(3, 12);
+        else
+            Age = Random.Range(18, 85);
+
         AgentGender = (Random.value > 0.5f) ? Gender.Male : Gender.Female;
-        
-        // Kids (under 12) and Seniors (over 65) are more susceptible and have higher mortality risks
-        if (Age < 12) {
+
+        // Susceptibility / Mortality multipliers
+        if (Age < 12)
+        {
             SusceptibilityMultiplier = 1.5f;
-            MortalityMultiplier = 0.5f; // Kids might catch it easily but lower mortality in some models, or higher if specified. Let's make mortality higher for both extremes as requested.
-        } 
-        else if (Age > 65) {
-            SusceptibilityMultiplier = 1.8f;
-            MortalityMultiplier = 2.5f; // Older people are much more vulnerable to severe outcomes
+            MortalityMultiplier = 0.5f;
         }
-        else {
+        else if (Age > 65)
+        {
+            SusceptibilityMultiplier = 1.8f;
+            MortalityMultiplier = 2.5f;
+        }
+        else
+        {
             SusceptibilityMultiplier = 1.0f;
             MortalityMultiplier = 1.0f;
         }
+
+        // Cache per-instance material copies for all renderers in this character
+        CacheInstanceMaterials();
+        
+        // Apply initial colour based on CurrentState
+        UpdateColor();
+    }
+
+    private void CacheInstanceMaterials()
+    {
+        var renderers = GetComponentsInChildren<Renderer>();
+        var matList = new System.Collections.Generic.List<Material>();
+        foreach (var r in renderers)
+        {
+            // Create per-instance copies so agents have independent colours
+            var mats = r.materials; // .materials already returns copies
+            r.materials = mats;
+            matList.AddRange(mats);
+        }
+        instanceMaterials = matList.ToArray();
     }
 
     public void ChangeState(InfectionState newState)
@@ -50,17 +83,47 @@ public class HealthState : MonoBehaviour
     
     private void UpdateColor()
     {
-        var rend = GetComponent<Renderer>();
-        if(rend == null) return;
-        
+        if (instanceMaterials == null || instanceMaterials.Length == 0) return;
+
+        Color stateColor = Color.white; // Default
+
         switch (CurrentState)
         {
-            case InfectionState.Susceptible: rend.material.SetColor("_BaseColor", new Color(0f, 1f, 0.5f)); break; // Vivid green
-            case InfectionState.Exposed: rend.material.SetColor("_BaseColor", new Color(1f, 0.8f, 0f)); break; // Vivid yellow-orange
-            case InfectionState.Infectious: rend.material.SetColor("_BaseColor", new Color(1f, 0f, 0f)); break; // Vivid red
-            case InfectionState.Quarantined: rend.material.SetColor("_BaseColor", new Color(0f, 0.5f, 1f)); break; // Vivid blue
-            case InfectionState.Removed: rend.material.SetColor("_BaseColor", new Color(0.5f, 0.5f, 0.5f)); break; // Grey
-            case InfectionState.Dead: rend.material.SetColor("_BaseColor", Color.black); break; // Black
+            case InfectionState.Susceptible: stateColor = new Color(0f, 1f, 0.5f); break;
+            case InfectionState.Exposed:     stateColor = new Color(1f, 0.8f, 0f); break;
+            case InfectionState.Infectious:  stateColor = Color.red;               break;
+            case InfectionState.Quarantined: stateColor = Color.blue;              break;
+            case InfectionState.Removed:     stateColor = Color.gray;              break;
+            case InfectionState.Dead:        stateColor = Color.black;             break;
+        }
+
+        // Create a 50% tint so the original texture isn't completely hidden
+        Color tintColor = Color.Lerp(Color.white, stateColor, 0.5f);
+        
+        // Add a soft emission for visibility
+        Color emissionColor = stateColor * 0.4f;
+
+        foreach (var mat in instanceMaterials)
+        {
+            if (mat != null)
+            {
+                // URP uses _BaseMap for texture, _BaseColor for tint
+                if (mat.HasProperty("_BaseColor"))
+                {
+                    mat.SetColor("_BaseColor", tintColor);
+                }
+                else if (mat.HasProperty("_Color"))
+                {
+                    mat.SetColor("_Color", tintColor);
+                }
+
+                // Enable emission so the state is clear even in shadows
+                if (mat.HasProperty("_EmissionColor"))
+                {
+                    mat.EnableKeyword("_EMISSION");
+                    mat.SetColor("_EmissionColor", emissionColor);
+                }
+            }
         }
     }
 }

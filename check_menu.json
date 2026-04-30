@@ -1,0 +1,5 @@
+{
+  "csharpCode": "using UnityEngine; public class CheckMenu { public static void Execute() { var go = GameObject.Find(\"SettingsMenuUI\"); if (go != null) Debug.Log(\"SettingsMenuUI exists. Active: \" + go.activeInHierarchy); else Debug.Log(\"SettingsMenuUI does NOT exist.\"); var root = go?.GetComponent<UnityEngine.UIElements.UIDocument>()?.rootVisualElement; Debug.Log(\"Root is null? \" + (root == null)); } }",
+  "className": "CheckMenu",
+  "methodName": "Execute"
+}

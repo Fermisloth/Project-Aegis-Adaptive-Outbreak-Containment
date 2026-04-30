@@ -1,0 +1,5 @@
+{
+  "csharpCode": "using UnityEngine; using UnityEditor; using System.IO; public class PrintAnimParams { public static void Execute() { var c = AssetDatabase.LoadAssetAtPath<UnityEditor.Animations.AnimatorController>(\"Assets/DavidJalbert/LowPolyPeople/Prefabs/Animations/normal.controller\"); string s = \"\"; foreach(var p in c.parameters) s += p.name + \"(\" + p.type + \"), \"; foreach(var l in c.layers) { foreach(var st in l.stateMachine.states) s += \"State: \" + st.state.name + \", \"; } File.WriteAllText(\"anim_params.txt\", s); } }",
+  "className": "PrintAnimParams",
+  "methodName": "Execute"
+}

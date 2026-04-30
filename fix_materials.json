@@ -1,0 +1,5 @@
+{
+  "csharpCode": "using UnityEngine; using UnityEditor; public class FixMaterials { public static void Execute() { for (int i = 1; i <= 9; i++) { var mat = AssetDatabase.LoadAssetAtPath<Material>($\"Assets/DavidJalbert/LowPolyPeople/FBX/Materials/palette{i}.mat\"); var tex = AssetDatabase.LoadAssetAtPath<Texture2D>($\"Assets/DavidJalbert/LowPolyPeople/FBX/Textures/palette{i}.png\"); if (mat != null && tex != null) { mat.SetTexture(\"_BaseMap\", tex); mat.SetColor(\"_BaseColor\", Color.white); mat.EnableKeyword(\"_EMISSION\"); mat.globalIlluminationFlags = MaterialGlobalIlluminationFlags.RealtimeEmissive; EditorUtility.SetDirty(mat); Debug.Log($\"Fixed palette{i}\"); } } AssetDatabase.SaveAssets(); } }",
+  "className": "FixMaterials",
+  "methodName": "Execute"
+}

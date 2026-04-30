@@ -152,3 +152,94 @@
     -unity-text-align: middle-center;
     white-space: normal;
 }
+
+/* === Settings Modal === */
+.overlay {
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    align-items: center;
+    justify-content: center;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+}
+
+.hidden {
+    opacity: 0;
+    display: none;
+}
+
+.modal-panel {
+    background-color: #1a1e24;
+    border-color: #00d2ff;
+    border-width: 2px;
+    border-radius: 12px;
+    padding: 30px;
+    width: 600px;
+}
+
+.title {
+    font-size: 24px;
+    -unity-font-style: bold;
+    color: #ffffff;
+    margin-bottom: 20px;
+    -unity-text-align: middle-center;
+}
+
+.section {
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.section-title {
+    font-size: 16px;
+    color: #00d2ff;
+    margin-bottom: 10px;
+    -unity-font-style: bold;
+}
+
+.unity-slider {
+    margin-bottom: 10px;
+}
+
+.unity-slider .unity-label {
+    color: #cccccc;
+    width: 150px;
+}
+
+.button-row {
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    -unity-font-style: bold;
+    margin-left: 10px;
+}
+
+.btn.primary {
+    background-color: #00d2ff;
+    color: #000000;
+}
+
+.btn.primary:hover {
+    background-color: #55e0ff;
+}
+
+.btn.secondary {
+    background-color: transparent;
+    color: #cccccc;
+    border-width: 1px;
+    border-color: #555555;
+}
+
+.btn.secondary:hover {
+    background-color: #333333;
+    color: #ffffff;
+}

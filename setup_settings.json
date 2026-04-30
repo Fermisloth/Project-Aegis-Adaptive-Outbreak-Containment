@@ -1,0 +1,5 @@
+{
+  "csharpCode": "using UnityEngine; using UnityEditor; using UnityEngine.UIElements; public class SetupSettingsMenu { public static void Execute() { var existing = GameObject.Find(\"SettingsMenuUI\"); if (existing != null) GameObject.DestroyImmediate(existing); var go = new GameObject(\"SettingsMenuUI\"); var uiDoc = go.AddComponent<UIDocument>(); var uxml = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(\"Assets/UI/SettingsMenu.uxml\"); uiDoc.visualTreeAsset = uxml; uiDoc.sortingOrder = 100; System.Type type = System.Type.GetType(\"SettingsMenuController, Assembly-CSharp\"); if (type != null) go.AddComponent(type); EditorUtility.SetDirty(go); UnityEditor.SceneManagement.EditorSceneManager.SaveOpenScenes(); Debug.Log(\"SettingsMenu created and saved to scene.\"); } }",
+  "className": "SetupSettingsMenu",
+  "methodName": "Execute"
+}

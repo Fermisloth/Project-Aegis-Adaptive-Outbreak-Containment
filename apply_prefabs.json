@@ -1,0 +1,5 @@
+{
+  "csharpCode": "using UnityEngine; using UnityEditor; public class ApplyPrefabsScript { public static void Execute() { var spawner = Object.FindFirstObjectByType<AgentGridSpawner>(); if (spawner != null) { spawner.malePrefabs = new GameObject[] { AssetDatabase.LoadAssetAtPath<GameObject>(\"Assets/DavidJalbert/LowPolyPeople/Prefabs/normal man a.prefab\"), AssetDatabase.LoadAssetAtPath<GameObject>(\"Assets/DavidJalbert/LowPolyPeople/Prefabs/normal man b.prefab\"), AssetDatabase.LoadAssetAtPath<GameObject>(\"Assets/DavidJalbert/LowPolyPeople/Prefabs/normal man c.prefab\") }; spawner.femalePrefabs = new GameObject[] { AssetDatabase.LoadAssetAtPath<GameObject>(\"Assets/DavidJalbert/LowPolyPeople/Prefabs/normal woman a.prefab\"), AssetDatabase.LoadAssetAtPath<GameObject>(\"Assets/DavidJalbert/LowPolyPeople/Prefabs/normal woman b.prefab\"), AssetDatabase.LoadAssetAtPath<GameObject>(\"Assets/DavidJalbert/LowPolyPeople/Prefabs/normal woman c.prefab\") }; EditorUtility.SetDirty(spawner); Debug.Log(\"Assigned low poly prefabs successfully!\"); } } }",
+  "className": "ApplyPrefabsScript",
+  "methodName": "Execute"
+}

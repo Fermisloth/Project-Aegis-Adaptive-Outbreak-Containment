@@ -71,6 +71,8 @@ public class DashboardController : MonoBehaviour
         // Fetch Overlay
         overlayMessage = root.Q<VisualElement>("OverlayMessage");
         overlayText = root.Q<Label>("overlayText");
+        
+        SetupSettingsMenu(root);
 
         if (manager == null) manager = FindAnyObjectByType<SimulationManager>();
 
@@ -196,5 +198,93 @@ public class DashboardController : MonoBehaviour
             manager.OnTick -= UpdateTelemetry;
             manager.OnActionMessage -= ShowOverlayMessage;
         }
+    }
+
+    // === Settings Menu Logic ===
+    private VisualElement settingsOverlay;
+    private Slider sliderContagious;
+    private Slider sliderLethal;
+    private Slider sliderMale;
+    private Slider sliderChild;
+    private Button btnApplySettings;
+    private Button btnCloseSettings;
+
+    private void SetupSettingsMenu(VisualElement root)
+    {
+        settingsOverlay = root.Q<VisualElement>("settings-overlay");
+        sliderContagious = root.Q<Slider>("slider-contagious");
+        sliderLethal = root.Q<Slider>("slider-lethal");
+        sliderMale = root.Q<Slider>("slider-male");
+        sliderChild = root.Q<Slider>("slider-child");
+        
+        btnApplySettings = root.Q<Button>("btn-apply");
+        btnCloseSettings = root.Q<Button>("btn-close");
+
+        if (btnApplySettings != null) btnApplySettings.clicked += ApplyAndRespawn;
+        if (btnCloseSettings != null) btnCloseSettings.clicked += ToggleMenu;
+
+        if (settingsOverlay != null)
+        {
+            settingsOverlay.AddToClassList("hidden");
+            settingsOverlay.style.display = DisplayStyle.None;
+        }
+    }
+
+    private void Update()
+    {
+        if (UnityEngine.InputSystem.Keyboard.current != null && UnityEngine.InputSystem.Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            ToggleMenu();
+        }
+    }
+
+    private void ToggleMenu()
+    {
+        if (settingsOverlay == null) return;
+        
+        bool isHidden = settingsOverlay.ClassListContains("hidden");
+        
+        if (isHidden)
+        {
+            if (manager != null && manager.config != null)
+            {
+                sliderContagious.value = manager.config.transmissionRate;
+                sliderLethal.value = manager.config.mortalityRate;
+            }
+
+            var spawner = Object.FindFirstObjectByType<AgentGridSpawner>();
+            if (spawner != null)
+            {
+                sliderMale.value = spawner.maleFraction;
+                sliderChild.value = spawner.childFraction;
+            }
+
+            settingsOverlay.RemoveFromClassList("hidden");
+            settingsOverlay.style.display = DisplayStyle.Flex;
+            Time.timeScale = 0f; // Pause sim
+        }
+        else
+        {
+            settingsOverlay.AddToClassList("hidden");
+            settingsOverlay.style.display = DisplayStyle.None;
+            Time.timeScale = 1f; // Resume sim
+        }
+    }
+
+    private void ApplyAndRespawn()
+    {
+        if (manager != null && manager.config != null)
+        {
+            manager.config.transmissionRate = sliderContagious.value;
+            manager.config.mortalityRate = sliderLethal.value;
+        }
+
+        var spawner = Object.FindFirstObjectByType<AgentGridSpawner>();
+        if (spawner != null)
+        {
+            spawner.Respawn(sliderMale.value, sliderChild.value);
+        }
+
+        ToggleMenu();
     }
 }

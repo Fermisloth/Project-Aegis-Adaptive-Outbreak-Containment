@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class FreeCam : MonoBehaviour
 {
     public float moveSpeed = 15f;
-    public float lookSpeed = 2f;
+    public float lookSpeed = 0.5f; // reduced look speed for new input system since delta is larger
     
     private float rotationX = 0f;
     private float rotationY = 0f;
@@ -26,25 +27,33 @@ public class FreeCam : MonoBehaviour
 
     void Update()
     {
+        if (Mouse.current == null || Keyboard.current == null) return;
+
         // Look around with Right Mouse Button
-        if (Input.GetMouseButton(1))
+        if (Mouse.current.rightButton.isPressed)
         {
-            rotationY += Input.GetAxis("Mouse X") * lookSpeed;
-            rotationX -= Input.GetAxis("Mouse Y") * lookSpeed;
+            Vector2 mouseDelta = Mouse.current.delta.ReadValue();
+            rotationY += mouseDelta.x * lookSpeed;
+            rotationX -= mouseDelta.y * lookSpeed;
             rotationX = Mathf.Clamp(rotationX, -90f, 90f);
             
             transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
         }
 
         // Movement with WASD
-        float moveX = Input.GetAxis("Horizontal");
-        float moveZ = Input.GetAxis("Vertical");
+        float moveX = 0f;
+        float moveZ = 0f;
         float moveY = 0f;
+
+        if (Keyboard.current.wKey.isPressed) moveZ += 1f;
+        if (Keyboard.current.sKey.isPressed) moveZ -= 1f;
+        if (Keyboard.current.dKey.isPressed) moveX += 1f;
+        if (Keyboard.current.aKey.isPressed) moveX -= 1f;
         
-        if (Input.GetKey(KeyCode.E)) moveY = 1f;
-        if (Input.GetKey(KeyCode.Q)) moveY = -1f;
+        if (Keyboard.current.eKey.isPressed) moveY = 1f;
+        if (Keyboard.current.qKey.isPressed) moveY = -1f;
 
         Vector3 move = transform.right * moveX + transform.forward * moveZ + transform.up * moveY;
-        transform.position += move * moveSpeed * Time.deltaTime;
+        transform.position += move.normalized * moveSpeed * Time.deltaTime;
     }
 }

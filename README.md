@@ -14,7 +14,13 @@ Project Aegis: Adaptive outbreak containment for #ROVOTINKERQUEST. Employs Hiera
   <em>Deciding how to intervene effectively under real-world constraints—when every second counts.</em>
 </p>
 
-<!-- 🔽 HERO IMAGE / GIF — Replace with actual screenshot or recording -->
+<!-- 
+========================================================================
+🎥 VIDEO PLACEHOLDER: HERO OVERVIEW RECORDING
+Replace the static screenshot below with your own animated recording/GIF.
+Example: <img width="640" height="360" alt="Overview" src="./your_hero_video.gif" />
+======================================================================== 
+-->
 <img width="640" height="360" alt="Overview" src="./simulation_preview.png" />
 
 </div>
@@ -210,7 +216,13 @@ $$m_i = \begin{cases} 0.5 & \text{if } a_i < 12 \text{ (children)} \\ 2.5 & \tex
 | ⚪ Grey | **Recovered** | Immune after recovery or vaccination |
 | ⚫ Black | **Dead** | Deceased — agent stops moving permanently |
 
-<!-- 🔽 GIF — Replace with a recording showing color transitions during an outbreak -->
+<!-- 
+========================================================================
+🎥 VIDEO PLACEHOLDER: COLOR TRANSITION RECORDING
+Insert a recording/GIF here showing the color transitions during an outbreak.
+Example: <img width="522" height="464" alt="color transition" src="./your_color_transition.gif" />
+======================================================================== 
+-->
 <img width="522" height="464" alt="color transition" src="./simulation_preview.png" />
 
 
@@ -256,6 +268,13 @@ The simulation provides three real-time policy actions, each with a budget cost:
 | 💉 **Mass Vaccination** | $50/agent | Instant | Up to 10 random Susceptible agents become Recovered (immune) |
 | 🏥 **Quarantine** | $800 | 15s | All Infectious agents are forced into nearby buildings; healthy agents move freely |
 
+<!-- 
+========================================================================
+🎥 VIDEO PLACEHOLDER: POLICY ACTION RECORDING
+Insert a recording/GIF here showing the agents responding to Lockdown/Quarantine.
+Example: <img width="360" height="640" alt="Lockdown" src="./your_lockdown_video.gif" />
+======================================================================== 
+-->
 <img width="360" height="640" alt="Lockdown" src="./simulation_preview.png" />
 
 ---

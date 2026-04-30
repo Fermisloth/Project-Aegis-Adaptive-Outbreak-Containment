@@ -114,7 +114,7 @@ public class SettingsMenuController : MonoBehaviour
         var spawner = Object.FindFirstObjectByType<AgentGridSpawner>();
         if (spawner != null)
         {
-            spawner.Respawn(sliderMale.value, sliderChild.value);
+            spawner.Respawn(spawner.populationSize, sliderMale.value, sliderChild.value);
         }
 
         ToggleMenu();

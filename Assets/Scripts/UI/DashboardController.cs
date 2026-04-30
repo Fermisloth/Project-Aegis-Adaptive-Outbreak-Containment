@@ -206,6 +206,7 @@ public class DashboardController : MonoBehaviour
     private Slider sliderLethal;
     private Slider sliderMale;
     private Slider sliderChild;
+    private SliderInt sliderPopulation;
     private Button btnApplySettings;
     private Button btnCloseSettings;
 
@@ -216,6 +217,7 @@ public class DashboardController : MonoBehaviour
         sliderLethal = root.Q<Slider>("slider-lethal");
         sliderMale = root.Q<Slider>("slider-male");
         sliderChild = root.Q<Slider>("slider-child");
+        sliderPopulation = root.Q<SliderInt>("slider-population");
         
         btnApplySettings = root.Q<Button>("btn-apply");
         btnCloseSettings = root.Q<Button>("btn-close");
@@ -255,6 +257,7 @@ public class DashboardController : MonoBehaviour
             var spawner = Object.FindFirstObjectByType<AgentGridSpawner>();
             if (spawner != null)
             {
+                if (sliderPopulation != null) sliderPopulation.value = spawner.populationSize;
                 sliderMale.value = spawner.maleFraction;
                 sliderChild.value = spawner.childFraction;
             }
@@ -282,7 +285,8 @@ public class DashboardController : MonoBehaviour
         var spawner = Object.FindFirstObjectByType<AgentGridSpawner>();
         if (spawner != null)
         {
-            spawner.Respawn(sliderMale.value, sliderChild.value);
+            int pop = sliderPopulation != null ? sliderPopulation.value : spawner.populationSize;
+            spawner.Respawn(pop, sliderMale.value, sliderChild.value);
         }
 
         ToggleMenu();

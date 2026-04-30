@@ -10,7 +10,7 @@ public class AgentGridSpawner : MonoBehaviour
     public GameObject[] femalePrefabs;
 
     [Header("Spawn Settings")]
-    public int gridSize = 20;
+    public int populationSize = 400;
     public float cityScatter = 35f;
 
     [Header("Demographic Proportions (0-1)")]
@@ -27,8 +27,9 @@ public class AgentGridSpawner : MonoBehaviour
         SpawnAgents();
     }
 
-    public void Respawn(float newMaleFraction, float newChildFraction)
+    public void Respawn(int newPopulationSize, float newMaleFraction, float newChildFraction)
     {
+        this.populationSize = newPopulationSize;
         this.maleFraction = newMaleFraction;
         this.childFraction = newChildFraction;
         
@@ -56,7 +57,7 @@ public class AgentGridSpawner : MonoBehaviour
 
     private void SpawnAgents()
     {
-        int totalAgents = gridSize * gridSize;
+        int totalAgents = populationSize;
 
         bool hasMale = malePrefabs != null && malePrefabs.Length > 0;
         bool hasFemale = femalePrefabs != null && femalePrefabs.Length > 0;

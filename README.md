@@ -17,10 +17,10 @@ Project Aegis: Adaptive outbreak containment for #ROVOTINKERQUEST. Employs Hiera
 <!-- 
 ========================================================================
 🎥 VIDEO PLACEHOLDER: HERO OVERVIEW RECORDING
-<img width="800" height="448" alt="front-ezgif com-video-to-gif-converter" src="https://github.com/user-attachments/assets/1cad237a-618c-440c-9988-3f9bba2dd7ef" />
 
 ======================================================================== 
--->
+--><img width="800" height="448" alt="front-ezgif com-video-to-gif-converter" src="https://github.com/user-attachments/assets/1cad237a-618c-440c-9988-3f9bba2dd7ef" />
+
 
 </div>
 
@@ -218,9 +218,9 @@ $$m_i = \begin{cases} 0.5 & \text{if } a_i < 12 \text{ (children)} \\ 2.5 & \tex
 <!-- 
 ========================================================================
 🎥 VIDEO PLACEHOLDER: COLOR TRANSITION RECORDING
-<img width="800" height="405" alt="ezgif com-video-to-gif-converter" src="https://github.com/user-attachments/assets/32236aef-cbaf-4207-9270-48ccc25a417d" />
+
 ======================================================================== 
--->
+--><img width="800" height="405" alt="ezgif com-video-to-gif-converter" src="https://github.com/user-attachments/assets/32236aef-cbaf-4207-9270-48ccc25a417d" />
 
 
 
@@ -269,9 +269,9 @@ The simulation provides three real-time policy actions, each with a budget cost:
 <!-- 
 ========================================================================
 🎥 VIDEO PLACEHOLDER: POLICY ACTION RECORDING
-<img width="800" height="445" alt="ezgif com-video-to-gif-converter (1)" src="https://github.com/user-attachments/assets/e2c4b029-14f0-47cb-9159-b6bae7b266e7" />
+
 ======================================================================== 
--->
+--><img width="800" height="445" alt="ezgif com-video-to-gif-converter (1)" src="https://github.com/user-attachments/assets/e2c4b029-14f0-47cb-9159-b6bae7b266e7" />
 
 
 ---
@@ -375,7 +375,7 @@ public void SendToBuilding()
 
 <!-- 🔽 SCREENSHOT — Replace with screenshot of the Dashboard HUD in action -->
 <p align="center">
-https://github.com/user-attachments/assets/2c10abda-955c-49a1-9937-065fc3b43ac8
+
   <br/>
   <sub><i>Dashboard HUD showing budget, hospital occupancy, epidemic bar graph, and action buttons</i></sub>
 </p>
@@ -394,7 +394,7 @@ https://github.com/user-attachments/assets/2c10abda-955c-49a1-9937-065fc3b43ac8
 
 <!-- 🔽 SCREENSHOT — Replace with a wide shot of the running simulation -->
 <p align="center">
- <img width="1599" height="754" alt="image" src="./simulation_preview.png" />
+ <img width="1599" height="754" alt="image" src="https://github.com/user-attachments/assets/2c10abda-955c-49a1-9937-065fc3b43ac8" />
   <sub><i>400 agents navigating a procedurally generated city with buildings, barriers, and grid-based streets</i></sub>
 </p>
 

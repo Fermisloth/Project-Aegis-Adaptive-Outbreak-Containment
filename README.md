@@ -17,11 +17,10 @@ Project Aegis: Adaptive outbreak containment for #ROVOTINKERQUEST. Employs Hiera
 <!-- 
 ========================================================================
 🎥 VIDEO PLACEHOLDER: HERO OVERVIEW RECORDING
-Replace the static screenshot below with your own animated recording/GIF.
-Example: <img width="640" height="360" alt="Overview" src="./your_hero_video.gif" />
+<img width="800" height="448" alt="front-ezgif com-video-to-gif-converter" src="https://github.com/user-attachments/assets/1cad237a-618c-440c-9988-3f9bba2dd7ef" />
+
 ======================================================================== 
 -->
-<img width="640" height="360" alt="Overview" src="./simulation_preview.png" />
 
 </div>
 
@@ -219,11 +218,10 @@ $$m_i = \begin{cases} 0.5 & \text{if } a_i < 12 \text{ (children)} \\ 2.5 & \tex
 <!-- 
 ========================================================================
 🎥 VIDEO PLACEHOLDER: COLOR TRANSITION RECORDING
-Insert a recording/GIF here showing the color transitions during an outbreak.
-Example: <img width="522" height="464" alt="color transition" src="./your_color_transition.gif" />
+<img width="800" height="405" alt="ezgif com-video-to-gif-converter" src="https://github.com/user-attachments/assets/32236aef-cbaf-4207-9270-48ccc25a417d" />
 ======================================================================== 
 -->
-<img width="522" height="464" alt="color transition" src="./simulation_preview.png" />
+
 
 
 ### 📊 Simulation Parameters
@@ -271,11 +269,10 @@ The simulation provides three real-time policy actions, each with a budget cost:
 <!-- 
 ========================================================================
 🎥 VIDEO PLACEHOLDER: POLICY ACTION RECORDING
-Insert a recording/GIF here showing the agents responding to Lockdown/Quarantine.
-Example: <img width="360" height="640" alt="Lockdown" src="./your_lockdown_video.gif" />
+<img width="800" height="445" alt="ezgif com-video-to-gif-converter (1)" src="https://github.com/user-attachments/assets/e2c4b029-14f0-47cb-9159-b6bae7b266e7" />
 ======================================================================== 
 -->
-<img width="360" height="640" alt="Lockdown" src="./simulation_preview.png" />
+
 
 ---
 
@@ -378,7 +375,7 @@ public void SendToBuilding()
 
 <!-- 🔽 SCREENSHOT — Replace with screenshot of the Dashboard HUD in action -->
 <p align="center">
-  <img src="./simulation_preview.png" alt="Dashboard HUD — live telemetry" width="800">
+https://github.com/user-attachments/assets/2c10abda-955c-49a1-9937-065fc3b43ac8
   <br/>
   <sub><i>Dashboard HUD showing budget, hospital occupancy, epidemic bar graph, and action buttons</i></sub>
 </p>
